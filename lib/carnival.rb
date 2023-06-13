@@ -30,4 +30,22 @@ class Carnival
       ride.total_revenue
     end
   end
+
+  def summary
+    carnival_summary = Hash.new {|h, k| h[k] = []}
+    carnival_summary[:visitor_count] = @rides.sum { |ride| ride.rider_log.count }
+    # carnival_summary[:revenue_earned] = total_revenue
+    carnival_summary[:visitors] = visitor_info
+
+  end
+  
+  # helper method
+  def visitor_info
+    visitors_hash = Hash.new {|h, k| h[k] = []}
+    @rides.each do |ride|
+      @rides.flat_map { |ride| ride.rider_log.uniq }.flatten
+      require 'pry'; binding.pry
+
+    end
+  end
 end
