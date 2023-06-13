@@ -34,4 +34,12 @@ RSpec.describe Visitor do
       expect(@visitor1.tall_enough?(64)).to be(false)
     end
   end
+
+  describe "#decrease_spending_money(ride_cost)" do
+    it "can have spending money decreased by the cost of a ride" do
+      expect(@visitor1.spending_money).to eq(10)
+      @visitor1.decrease_spending_money(2)
+      expect(@visitor1.spending_money).to eq(8)
+    end
+  end
 end
